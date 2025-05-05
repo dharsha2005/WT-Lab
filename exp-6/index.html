@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Biodata CRUD</title>
+</head>
+<body>
+    <h1>Biodata CRUD Application</h1>
+
+    <h2>Create / Submit</h2>
+    <form id="createForm">
+        Name: <input type="text" name="name"><br>
+        DOB: <input type="text" name="dob"><br>
+        EID: <input type="text" name="eid"><br>
+        PID: <input type="text" name="pid"><br>
+        Phone: <input type="number" name="phone"><br>
+        GitHub: <input type="text" name="github"><br>
+        LinkedIn: <input type="text" name="linkedin"><br>
+        Leetcode: <input type="text" name="leetcode"><br>
+        Leetcode Problems: <input type="text" name="leetcodeProblems"><br>
+        Languages Known: <input type="text" name="languagesKnown"><br>
+        <button type="submit">Submit</button>
+    </form>
+
+    <hr>
+
+    <h2>All Records</h2>
+    <button onclick="getAll()">Load All</button>
+    <pre id="allData"></pre>
+
+    <hr>
+
+    <h2>Update Record</h2>
+    ID: <input type="text" id="updateId"><br>
+    New Name: <input type="text" id="updateName"><br>
+    <button onclick="updateRecord()">Update</button>
+
+    <hr>
+
+    <h2>Delete Record</h2>
+    ID: <input type="text" id="deleteId"><br>
+    <button onclick="deleteRecord()">Delete</button>
+
+    <script>
+        document.getElementById("createForm").addEventListener("submit", async function(e) {
+            e.preventDefault();
+            const formData = new FormData(e.target);
+            const data = Object.fromEntries(formData.entries());
+            const res = await fetch("/submit", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(data)
+            });
+            const result = await res.json();
+            alert(result.message || result.error);
+        });
+
+        async function getAll() {
+            const res = await fetch("/getAll");
+            const data = await res.json();
+            document.getElementById("allData").innerText = JSON.stringify(data, null, 2);
+        }
+
+        async function updateRecord() {
+            const id = document.getElementById("updateId").value;
+            const name = document.getElementById("updateName").value;
+            const  = document.getElementById("updateName").value;
+            const res = await fetch(`/update/${id}`, {
+                method: "PUT",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ name })
+            });
+            const data = await res.json();
+            alert(data.message || "Updated: " + JSON.stringify(data));
+        }
+
+        async function deleteRecord() {
+            const id = document.getElementById("deleteId").value;
+            const res = await fetch(`/delete/${id}`, { method: "DELETE" });
+            const data = await res.json();
+            alert(data.message || data.error);
+        }
+    </script>
+</body>
+</html>

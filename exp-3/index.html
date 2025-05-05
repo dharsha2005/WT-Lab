@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Record</title>
+    <style>
+        body {
+            text-align: center;
+            background-color: #f0f8ff; /* Light Blue Background Color */
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            width: 700px;
+            height: 900px;
+            margin: 20px auto;
+            position: relative;
+            background-image: url('https://via.placeholder.com/700x900.png?text=Student+Record+Image'); /* Placeholder Image */
+            background-size: cover;
+            background-position: center;
+            border: 3px solid #333;
+            padding: 20px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-evenly;
+            text-align: center;
+            border-radius: 10px; /* Added border-radius */
+        }
+        h1 {
+            font-size: 28px;
+            font-weight: bold;
+            text-transform: uppercase;
+            color: #333;
+        }
+        h2 {
+            font-size: 22px;
+            font-weight: bold;
+            color: #333;
+        }
+        input {
+            width: 80%;
+            margin: 10px 0;
+            padding: 10px;
+            border: 1px solid #333;
+            background: transparent;
+            text-align: center;
+            font-size: 18px;
+            color: #333;
+            font-weight: bold;
+            border-radius: 5px;
+        }
+        button {
+            padding: 10px 20px;
+            margin: 10px;
+            background: #3728a7;
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            border-radius: 5px;
+        }
+        button:hover {
+            background: #218838;
+        }
+        p {
+            font-size: 16px;
+            margin: 10px 0;
+            font-weight: bold;
+            color: #333;
+        }
+        .photo {
+            width: 150px;
+            height: 200px;
+            border: 2px solid #333;
+            margin-bottom: 20px;
+            background-image: url('https://via.placeholder.com/150x200.png?text=Your+Photo');
+            background-size: cover;
+            background-position: center;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+<h1>KONGU ENGINEERING COLLEGE</h1>
+<p>THOPPUPALAYAM (Po), PERUNDURAI (Tk)</p>
+<p>ERODE - 638 060 TAMILNADU INDIA</p>
+<h2>Student Record</h2>
+    <div class="photo"></div>
+    <input type="text" id="name" placeholder="Enter Name">
+    <input type="text" id="reg" placeholder="Enter Reg No">
+    <input type="text" id="branch" placeholder="Enter Branch">
+    <input type="text" id="period" placeholder="Enter Period">
+    <div>
+        <button onclick="validate()">Save</button>
+        <button onclick="location.href='bio.html'">Next</button>
+    </div>
+</div>
+
+<script>
+    function validate() {
+        let fields = ['name', 'reg', 'branch', 'period'];
+        for (let field of fields) {
+            let value = document.getElementById(field).value.trim();
+            if (value === '') {
+                alert(field.charAt(0).toUpperCase() + " field must be filled");
+                return;
+            }
+        }
+
+        // Additional validation for specific fields
+        let reg = document.getElementById('reg').value.trim();
+        if (!/^\d{6,10}$/.test(reg)) {
+            alert("Register Number must be 6 to 10 digits long.");
+            return;
+        }
+
+        alert("Record Saved ✅🔥");
+        window.location.href = 'bio.html'; // Navigate to bio.html
+    }
+
+    function previous() {
+        alert("Going Back 🔙");
+    }
+</script>
+</body>
+</html>

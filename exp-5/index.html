@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Signup & Login</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        form {
+            width: 300px;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+        input[type="text"], input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        input[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Signup</h2>
+    <form id="signupForm" action="http://localhost:4001/signup" method="get" onsubmit="return validateSignup()">
+        <label>Username</label>
+        <input type="text" name="username" id="signupUsername"><br>
+        <label>Password</label>
+        <input type="password" name="password" id="signupPassword"><br>
+        <input type="submit" value="Signup">
+    </form>
+
+    <h2>Login</h2>
+    <form id="loginForm" action="http://localhost:4001/login" method="post" onsubmit="return validateLogin()">
+        <label>Username</label>
+        <input type="text" name="username" id="loginUsername"><br>
+        <label>Password</label>
+        <input type="password" name="password" id="loginPassword"><br>
+        <input type="submit" value="Login">
+    </form>
+
+    <script>
+        function validateSignup() {
+            var username = document.getElementById('signupUsername').value;
+            var password = document.getElementById('signupPassword').value;
+            
+            if (username === '' || password === '') {
+                alert('Username and Password cannot be empty');
+                return false;
+            } else if (username.length < 5 || password.length < 5) {
+                alert('Username and Password must be at least 5 characters long');
+                return false;
+            }
+            alert('Signup successful');
+            return true;
+        }
+
+        function validateLogin() {
+            var username = document.getElementById('loginUsername').value;
+            var password = document.getElementById('loginPassword').value;
+            var a = "dharshan";
+            var b = "08082005";
+            
+            if (username === '' || password === '') {
+                alert('Username and Password cannot be empty');
+                return false;
+            } else if (username.length < 5 || password.length < 5) {
+                alert('Username and Password must be at least 5 characters long');
+                return false;
+            }
+            if (a !== username || b !== password) {
+                alert('Invalid username or password');
+                return false;
+            }
+            alert('Login successful');
+            return true;
+        }
+    </script>
+
+</body>
+</html>

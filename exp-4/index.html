@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>T-Shirt Brand Price Calculator</title>
+</head>
+<body>
+    <h2>T-Shirt Brand Price Calculator</h2>
+    <table border="1">
+        <tr>
+            <th>Brand</th>
+            <th>Price (₹)</th>
+            <th>Quantity</th>
+        </tr>
+        <tr>
+            <td>Nike</td>
+            <td>1500</td>
+            <td><input type="number" id="nikeQty" value="0" min="0"></td>
+        </tr>
+        <tr>
+            <td>Adidas</td>
+            <td>1800</td>
+            <td><input type="number" id="adidasQty" value="0" min="0"></td>
+        </tr>
+        <tr>
+            <td>Puma</td>
+            <td>1300</td>
+            <td><input type="number" id="pumaQty" value="0" min="0"></td>
+        </tr>
+        <tr>
+            <td>Reebok</td>
+            <td>1400</td>
+            <td><input type="number" id="reebokQty" value="0" min="0"></td>
+        </tr>
+        <tr>
+            <td>Levi's</td>
+            <td>1600</td>
+            <td><input type="number" id="levisQty" value="0" min="0"></td>
+        </tr>
+    </table>
+
+    <button onclick="calculateTotal()">Calculate Total</button>
+    <h3>Total Bill: ₹<span id="totalBill">0</span></h3>
+
+    <script>
+        function calculateTotal() {
+            var nikeTotal = 1500 * parseInt(document.getElementById('nikeQty').value);
+            var adidasTotal = 1800 * parseInt(document.getElementById('adidasQty').value);
+            var pumaTotal = 1300 * parseInt(document.getElementById('pumaQty').value);
+            var reebokTotal = 1400 * parseInt(document.getElementById('reebokQty').value);
+            var levisTotal = 1600 * parseInt(document.getElementById('levisQty').value);
+            
+            var total = nikeTotal + adidasTotal + pumaTotal + reebokTotal + levisTotal;
+            
+            document.getElementById('totalBill').textContent = total;
+        }
+    </script>
+</body>
+</html>

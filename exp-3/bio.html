@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bio Data</title>
+    <style>
+        body {
+            text-align: center;
+            background-color: #f0f8ff; /* Light Blue Background Color */
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            width: 700px;
+            margin: 20px auto;
+            background-color: #ffffff;
+            border: 3px solid #333;
+            padding: 20px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+            text-align: left;
+            border-radius: 10px;
+            overflow: hidden; /* Added overflow property */
+        }
+        h1 {
+            text-align: center;
+            text-transform: uppercase;
+            text-decoration: underline;
+            color: #333;
+        }
+        label {
+            display: inline-block;
+            width: 40%;
+            margin: 10px 0 5px;
+            font-weight: bold;
+            color: #333;
+        }
+        input {
+            width: 55%;
+            padding: 8px;
+            margin-bottom: 10px;
+            border: 1px solid #333;
+            background: transparent;
+            text-align: left;
+            border-radius: 5px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        table, th, td {
+            border: 1px solid #333;
+            text-align: left;
+            padding: 8px;
+            border-radius: 5px;
+        }
+        th {
+            background-color: #f8f9fa;
+        }
+        button {
+            padding: 10px 20px;
+            margin: 10px;
+            background: #3728a7;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        button:hover {
+            background: #218838;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+<h1>BIO DATA</h1>
+<label>Name:</label><input type="text" id="name" placeholder="Enter Name"><br>
+<label>Date of Birth:</label><input type="date" id="dob"><br>
+<label>Email ID:</label><input type="email" id="email" placeholder="Enter Email"><br>
+<label>Community and Caste:</label><input type="text" id="community" placeholder="Enter Community"><br>
+<label>Blood Group:</label><input type="text" id="blood" placeholder="Enter Blood Group"><br>
+<label>Father/Guardian Name:</label><input type="text" id="guardian" placeholder="Enter Guardian Name"><br>
+<label>Occupation & Income:</label><input type="text" id="income" placeholder="Occupation & Income"><br>
+<label>Native Place & District:</label><input type="text" id="native" placeholder="Enter Native Place"><br>
+
+<h2>Exam Passed</h2>
+<table>
+    <tr>
+        <th>Exam</th>
+        <th>Name of Institution</th>
+        <th>Max Marks</th>
+        <th>Marks Secured</th>
+        <th>% of Marks</th>
+        <th>Year of Passing</th>
+    </tr>
+    <tr>
+        <td>S.S.L.C</td>
+        <td><input type="text" placeholder="Institution Name"></td>
+        <td><input type="number" min="0" placeholder="Max Marks"></td>
+        <td><input type="number" min="0" placeholder="Marks Secured"></td>
+        <td><input type="number" min="0" max="100" placeholder="% Marks"></td>
+        <td><input type="number" placeholder="Year"></td>
+    </tr>
+    <tr>
+        <td>H.Sc</td>
+        <td><input type="text" placeholder="Institution Name"></td>
+        <td><input type="number" min="0" placeholder="Max Marks"></td>
+        <td><input type="number" min="0" placeholder="Marks Secured"></td>
+        <td><input type="number" min="0" max="100" placeholder="% Marks"></td>
+        <td><input type="number" placeholder="Year"></td>
+    </tr>
+</table>
+
+<div>
+    <button onclick="location.href='index.html'">Previous</button>
+    <button onclick="validate()">Save</button>
+    <button onclick="location.href='table.html'">Next</button>
+</div>
+</div>
+
+<script>
+    function validate() {
+        let fields = ['name', 'dob', 'email', 'community', 'blood', 'guardian', 'income', 'native'];
+        for (let i of fields) {
+            if (document.getElementById(i).value.trim() === '') {
+                alert(i + " field must be filled"); // Corrected the variable name
+                return;
+            }
+        }
+        let email = document.getElementById("email").value;
+        let emailPattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
+        if (!email.match(emailPattern)) {
+            alert("Invalid Email Address");
+            return;
+        }
+        alert("Bio Data Saved");
+    }
+
+    function previous() {
+        alert("Going Back");
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Semester Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            padding: 20px;
+            background-color: #f0f8ff; /* Light Blue Background Color */
+        }
+        .container {
+            width: 80%;
+            margin: auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+            border: 3px solid #333;
+            overflow: hidden; /* Added overflow property */
+        }
+        .form-group {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+        }
+        .form-group label {
+            width: 40%;
+            color: #333;
+            font-weight: bold;
+        }
+        .form-group input {
+            width: 30%;
+            padding: 8px;
+            border: 1px solid #333;
+            border-radius: 5px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td {
+            border: 1px solid #333;
+            padding: 10px;
+            text-align: center;
+            border-radius: 5px;
+        }
+        th {
+            background-color: #f8f9fa;
+        }
+        input[type="text"] {
+            width: 100%;
+            padding: 5px;
+            border: none;
+            outline: none;
+            background: transparent;
+        }
+        .submit-btn {
+            margin-top: 20px;
+            padding: 10px 20px;
+            background: #007bff;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        button {
+            padding: 10px 20px;
+            margin: 10px;
+            background: #3728a7;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        button:hover {
+            background: #218838;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <form name="studentForm" onsubmit="validateForm(event)">
+            <div class="form-group">
+                <label>Programme:</label>
+                <input type="text" name="programme" required>
+                
+                <label>Branch:</label>
+                <input type="text" name="branch" required>
+                </div>
+                <div class="form-group">
+                    <label></label>
+                    <input type="text" name="semester" required>
+                <label>Semester:</label>
+                <input type="text" name="semester" required>
+            </div>
+            <div class="form-group">
+          <label>Register No:</label><table width="50%" style="margin-left: 5px;"><tr><th>
+        <input type="text" name="reg_no" required></th></tr></table>
+            </div>
+
+            <table width="100%" style="margin-top: 20px;">
+                <tr>
+                    <th rowspan="2">Sl. No</th>
+                    <th rowspan="2">Course Code & Course Name</th>
+                    <th rowspan="2">Credit</th>
+                    <th rowspan="2">CA Marks (50)</th>
+                    <th colspan="4">End Semester Grade</th>
+                </tr>
+                <tr>
+                    <th>Dec 20</th>
+                    <th>May 20</th>
+                    <th>May 20</th>
+                    <th>Dec 20</th>
+                </tr>
+                <tr>
+                <tr>
+                    <td>1</td>
+                    <td><input type="text" name="course1"></td>
+                    <td><input type="text" name="credit1"></td>
+                    <td><input type="text" name="marks1"></td>
+                    <td><input type="text" name="grade11"></td>
+                    <td><input type="text" name="grade12"></td>
+                    <td><input type="text" name="grade13"></td>
+                    <td><input type="text" name="grade14"></td>
+
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td><input type="text" name="course2"></td>
+                    <td><input type="text" name="credit2"></td>
+                    <td><input type="text" name="marks2"></td>
+                    <td><input type="text" name="grade21"></td>
+                    <td><input type="text" name="grade22"></td>
+                    <td><input type="text" name="grade23"></td>
+                    <td><input type="text" name="grade24"></td>
+
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td><input type="text" name="course3"></td>
+                    <td><input type="text" name="credit3"></td>
+                    <td><input type="text" name="marks3"></td>
+                    <td><input type="text" name="grade31"></td>
+                    <td><input type="text" name="grade32"></td>
+                    <td><input type="text" name="grade33"></td>
+                    <td><input type="text" name="grade34"></td>
+
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td><input type="text" name="course4"></td>
+                    <td><input type="text" name="credit4"></td>
+                    <td><input type="text" name="marks4"></td>
+                    <td><input type="text" name="grade41"></td>
+                    <td><input type="text" name="grade42"></td>
+                    <td><input type="text" name="grade43"></td>
+                    <td><input type="text" name="grade44"></td>
+                </tr>
+                <tr>
+                    <td>5</td>
+                    <td><input type="text" name="course5"></td>
+                    <td><input type="text" name="credit5"></td>
+                    <td><input type="text" name="marks5"></td>
+                    <td><input type="text" name="grade51"></td>
+                    <td><input type="text" name="grade52"></td>
+                    <td><input type="text" name="grade53"></td>
+                    <td><input type="text" name="grade54"></td>
+                </tr>
+                <tr>
+                    <td>6</td>
+                    <td><input type="text" name="course6"></td>
+                    <td><input type="text" name="credit6"></td>
+                    <td><input type="text" name="marks6"></td>
+                    <td><input type="text" name="grade61"></td>
+                    <td><input type="text" name="grade62"></td>
+                    <td><input type="text" name="grade63"></td>
+                    <td><input type="text" name="grade64"></td>
+                </tr>
+                <tr>
+                    <td>7</td>
+                    <td><input type="text" name="course7"></td>
+                    <td><input type="text" name="credit7"></td>
+                    <td><input type="text" name="marks7"></td>
+                    <td><input type="text" name="grade71"></td>
+                    <td><input type="text" name="grade72"></td>
+                    <td><input type="text" name="grade73"></td>
+                    <td><input type="text" name="grade74"></td>
+                </tr>
+                <tr>
+                    <td>8</td>
+                    <td><input type="text" name="course8"></td>
+                    <td><input type="text" name="credit8"></td>
+                    <td><input type="text" name="marks8"></td>
+                    <td><input type="text" name="grade81"></td>
+                    <td><input type="text" name="grade82"></td>
+                    <td><input type="text" name="grade83"></td>
+                    <td><input type="text" name="grade84"></td>
+                </tr>
+                <tr>
+                    <td>9</td>
+                    <td><input type="text" name="course9"></td>
+                    <td><input type="text" name="credit9"></td>
+                    <td><input type="text" name="marks9"></td>
+                    <td><input type="text" name="grade91"></td>
+                    <td><input type="text" name="grade92"></td>
+                    <td><input type="text" name="grade93"></td>
+                    <td><input type="text" name="grade94"></td>
+                </tr>
+                <tr>
+                    <td>10</td>
+                    <td><input type="text" name="course10"></td>
+                    <td><input type="text" name="credit10"></td>
+                    <td><input type="text" name="marks10"></td>
+                    <td><input type="text" name="grade101"></td>
+                    <td><input type="text" name="grade102"></td>
+                    <td><input type="text" name="grade103"></td>
+                    <td><input type="text" name="grade104"></td>
+                </tr>
+              
+            </table>
+            <div class="form-group">
+                <label>Attendance:</label>
+                <input type="text" name="attendance" required>
+                <label>GPA:</label>
+                <input type="text" name="gpa" required>
+                <label>CGPA:</label>
+                <input type="text" name="cgpa" required>
+            </div>
+            <div class="form-group">
+                <label>Remarks if any:</label>
+                <input type="text" name="remark" required>
+               
+                <label>signature of the student:</label>
+                <input type="text" name="sign" required>
+            </div>
+            <br>
+            <table width="100%">
+                <tr>
+                    <th rowspan="3" colspan="1">Name and Signature</th>
+                    <th>Class Advisor</th>
+                    <th>Head of the Department</th>
+                </tr>
+                <tr>
+                    <td><input type="text" id="classAdvisor" required></td>
+                    <td><input type="text" id="hodSignature" required></td>
+                </tr>
+            </table>
+            <button onclick="location.href='bio.html'">previous</button>
+            <button type="submit" >Submit</button>
+        </form>
+
+    </div>
+    <script>
+        function validateForm(event) {
+            event.preventDefault(); 
+    
+            let programme = document.forms["studentForm"]["programme"].value.trim();
+            let branch = document.forms["studentForm"]["branch"].value.trim();
+            let semester = document.forms["studentForm"]["semester"].value.trim();
+            let regNo = document.forms["studentForm"]["reg_no"].value.trim();
+            let gpa = document.forms["studentForm"]["gpa"].value.trim();
+            let cgpa = document.forms["studentForm"]["cgpa"].value.trim();
+            let isValid = true;
+    
+            // ✅ Programme, Branch, and Semester Validation
+            if (programme === "" || branch === "" || semester === "") {
+                alert("Programme, Branch, and Semester fields cannot be empty.");
+                isValid = false;
+            }
+    
+            if (!/^\d{6,10}$/.test(regNo)) {
+                alert("Register Number must be 6 to 10 digits long.");
+                isValid = false;
+            }
+            if (gpa !== "" && !/^(10(\.0+)?|\d(\.\d{1,2})?)$/.test(gpa)) {
+                alert("GPA must be a decimal number between 0 and 10.");
+                isValid = false;
+            }
+            if (cgpa !== "" && !/^(10(\.0+)?|\d(\.\d{1,2})?)$/.test(cgpa)) {
+                alert("CGPA must be a decimal number between 0 and 10.");
+                isValid = false;
+            }
+            for (let i = 1; i <= 10; i++) {
+                let course = document.forms["studentForm"]["course" + i];
+                let credit = document.forms["studentForm"]["credit" + i];
+                let marks = document.forms["studentForm"]["marks" + i];
+    
+                if (course && course.value.trim() !== "") {
+                    if (credit && !/^\d+$/.test(credit.value.trim())) {
+                        alert("Credit for Course ${i} must be a valid number.");
+                        isValid = false;
+                    }
+                    if (marks && !/^\d+$/.test(marks.value.trim())) {
+                        alert("Marks for Course ${i} must be a valid number.");
+                        isValid = false;
+                    }
+                }
+            }
+            if (isValid) {
+                alert("Form submitted successfully!");
+                document.forms["studentForm"].submit(); 
+            }
+        }
+    </script>
+</body>
+</html>
