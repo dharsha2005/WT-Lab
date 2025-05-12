@@ -1,0 +1,18 @@
+<header>B2K Poultry Farm</header>
+<nav>
+
+    <a routerLink="/home">Home</a>
+    <a routerLink="/poultry">Poultry</a>
+</nav>
+<div *ngIf="!submitted">
+  <form (ngSubmit)="saveContact()">
+    <input type="text" [(ngModel)]="contact.name" name="name" placeholder="Name" required>
+    <input type="email" [(ngModel)]="contact.email" name="email" placeholder="Email" required>
+    <textarea [(ngModel)]="contact.msg" name="msg" placeholder="Message" required></textarea>
+    <button type="submit">Add Contact</button>
+  </form>
+</div>
+<div *ngIf="submitted">
+  <h4>Contact added successfully!</h4>
+  <button (click)="newContact()">Add Another</button>
+</div>
