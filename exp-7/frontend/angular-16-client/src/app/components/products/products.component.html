@@ -1,0 +1,29 @@
+<div class="product-form">
+  <h2>Add Product</h2>
+  <form (ngSubmit)="addProduct()">
+    <label>Bird Type:</label>
+    <input type="text" [(ngModel)]="newProduct.birdType" name="birdType" required />
+
+    <label>Product Type:</label>
+    <input type="text" [(ngModel)]="newProduct.productType" name="productType" required />
+
+    <label>Quantity:</label>
+    <input type="number" [(ngModel)]="newProduct.quantity" name="quantity" required />
+
+    <label>Price Per Unit:</label>
+    <input type="number" [(ngModel)]="newProduct.pricePerUnit" name="pricePerUnit" required />
+
+    <button type="submit">Add Product</button>
+  </form>
+</div>
+
+<div class="product-list">
+  <h2>Product List</h2>
+  <ul>
+    <li *ngFor="let product of products">
+      {{ product.birdType }} - {{ product.productType }} - {{ product.quantity }} units @ ${{ product.pricePerUnit }} each
+      (Total: ${{ product.totalValue }})
+      <button (click)="deleteProduct(product._id)">Delete</button>
+    </li>
+  </ul>
+</div>

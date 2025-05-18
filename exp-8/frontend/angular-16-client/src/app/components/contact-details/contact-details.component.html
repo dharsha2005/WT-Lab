@@ -1,0 +1,22 @@
+<div *ngIf="currentContact._id" class="add-product-form">
+  <h4>Add Product</h4>
+  <form (ngSubmit)="addProduct()">
+    <div>
+      <label>Bird Type:</label>
+      <input type="text" [(ngModel)]="newProduct.birdType" name="birdType" required />
+    </div>
+    <div>
+      <label>Product Type:</label>
+      <input type="text" [(ngModel)]="newProduct.productType" name="productType" required />
+    </div>
+    <div>
+      <label>Quantity:</label>
+      <input type="number" [(ngModel)]="newProduct.quantity" name="quantity" required />
+    </div>
+    <div>
+      <label>Price Per Unit:</label>
+      <input type="number" [(ngModel)]="newProduct.pricePerUnit" name="pricePerUnit" required />
+    </div>
+    <button type="submit">Add Product</button>
+  </form>
+</div>

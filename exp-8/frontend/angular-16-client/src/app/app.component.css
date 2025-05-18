@@ -1,0 +1,28 @@
+.container {
+  max-width: 800px;
+  margin: 30px auto;
+  background: #fff;
+  padding: 24px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+h2 {
+  margin-bottom: 24px;
+  color: #ff9900;
+}
+
+.navbar {
+  margin-bottom: 0;
+}
+
+.navbar-brand {
+  font-weight: bold;
+  color: #ffcc00 !important;
+}
+
+.nav-link.active, .nav-link:focus, .nav-link:hover {
+  background: #e68a00;
+  border-radius: 5px;
+  color: #fff !important;
+}
